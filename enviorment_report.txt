@@ -1,1 +1,34 @@
+1. User Identity & Groups
+Command Executed: id
 
+Observations: This command displays the current user's unique identification number (UID), primary group ID (GID), and all supplementary groups the user belongs to. It ensures that the account has been provisioned with the correct identity on the local system. By verifying the group associations, a support engineer can confirm they have the necessary administrative or team-level access privileges. It acts as the primary tool for access control troubleshooting.
+
+Screenshot Action: Capture the terminal output showing your uid, gid, and named groups.
+
+2. Current Shell
+Command Executed: echo $SHELL
+
+Observations: This command reads and prints the value of the $SHELL environment variable, which points to the active command-line interpreter. Knowing the active shell (such as /bin/bash or /bin/zsh) is critical because it dictates script compatibility and syntax behavior. It also tells the engineer which configuration files (like .bashrc or .zprofile) are loaded during login. This ensures environment variables will compile correctly during administrative tasks.
+
+Screenshot Action: Capture the printed absolute path of your active shell interface.
+
+3. Current Working Directory
+Command Executed: pwd
+
+Observations: The pwd (Print Working Directory) command outputs the absolute path of the directory where the user is currently positioned. This provides an essential baseline reference point before executing scripts or managing system files. It helps avoid path configuration mistakes that could lead to accidentally overwriting data in the wrong folder. Verifying this ensures you are operating inside your assigned workspace.
+
+Screenshot Action: Capture the full directory path text outputted directly below your command prompt.
+
+4. Workspace Contents
+Command Executed: ls -la
+
+Observations: This command lists all contents within the current directory using a detailed, long-listing format (-l) while uncovering hidden files (-a). The long format exposes vital file metadata including read/write/execute permissions, file ownership, file size, and modification timestamps. The hidden file flag is critical for support engineers to inspect hidden configuration parameters like .profile or .ssh keys. It confirms the baseline storage state of the workspace.
+
+Screenshot Action: Capture the long-form file list, ensuring permissions and hidden dot-files are fully visible.
+
+5. Network Connectivity Verification
+Command Executed: ping -c 4 8.8.8.8
+
+Observations: The ping command sends 4 ICMP echo request packets to a reliable external public DNS IP address to verify outbound network connectivity. This test confirms that the network interface card is active, IP routing is working, and packets can successfully traverse external firewalls. The resulting statistics highlight crucial packet loss metrics and round-trip times (latency). It validates whether the system is connected to the wider network or isolated.
+
+Screenshot Action: Capture the final ping statistics summary table at the bottom of the terminal output.
